@@ -35,10 +35,13 @@ let capsEntries = entries.map((entry) => [
 ])
 sequelize.models = Object.fromEntries(capsEntries)
 
-//const { models } = sequelize.models;
+const { Apartaments, CommonAreas, Payments } = sequelize.models
 
 // Aca vendrian las relaciones
+Apartaments.hasMany(Payments)
+Payments.belongsTo(Apartaments)
 
 module.exports = {
+	...sequelize.models,
 	conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 }
