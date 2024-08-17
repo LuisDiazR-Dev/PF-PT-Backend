@@ -35,7 +35,7 @@ let capsEntries = entries.map((entry) => [
 ])
 sequelize.models = Object.fromEntries(capsEntries)
 
-const { Apartaments, CommonAreas, Payments } = sequelize.models
+const { Apartaments, Payments } = sequelize.models
 
 // Aca vendrian las relaciones
 Apartaments.hasMany(Payments)

@@ -11,6 +11,23 @@ module.exports = (sequelize) => {
 				allowNull: false,
 				primaryKey: true,
 			},
+			building: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			numberApartament: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+			},
+			size: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			state: {
+				type: DataTypes.ENUM('Disponible', 'Ocupado', 'Reservado'),
+				allowNull: false,
+				primaryKey: true,
+			},
 		},
 		{
 			timestamps: false,
