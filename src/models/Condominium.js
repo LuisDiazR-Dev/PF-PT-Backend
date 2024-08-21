@@ -19,6 +19,12 @@ module.exports = (sequelize) => {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            condominium_country: {
+                type: DataTypes.STRING,
+            },
+            condominium_department: {
+                type: DataTypes.STRING,
+              },
             condominium_logo: {
                 type: DataTypes.STRING,
             },
