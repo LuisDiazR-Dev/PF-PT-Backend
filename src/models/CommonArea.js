@@ -4,13 +4,26 @@ const { DataTypes } = require('sequelize')
 module.exports = (sequelize) => {
 	// defino el modelo
 	sequelize.define(
-		'CommonAreas',
+		'CommonArea',
 		{
 			id: {
+				type: DataTypes.INTEGER,
+				primaryKey: true,
+				autoIncrement: true,
+				allowNull: false,
+			},
+			area_name: {
 				type: DataTypes.STRING,
 				allowNull: false,
-				primaryKey: true,
 			},
+			capacity: {
+				type: DataTypes.INTEGER,
+			},
+			availability: {
+				type: DataTypes.BOOLEAN,
+				defaultValue: true,
+				allowNull: false
+			}
 		},
 		{
 			timestamps: false,

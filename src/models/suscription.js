@@ -4,12 +4,19 @@ const { DataTypes } = require('sequelize')
 module.exports = (sequelize) => {
 	// defino el modelo
 	sequelize.define(
-		'Payments',
+		'Suscription',
 		{
 			id: {
-				type: DataTypes.STRING,
-				allowNull: false,
+				type: DataTypes.INTEGER,
+				autoIncrement: true,
 				primaryKey: true,
+			},
+			plan_price: {
+				dataType: DataTypes.INTEGER,
+				allowNull: false,
+			},
+			registration_date: {
+				type: DataTypes.DATE,
 			},
 		},
 		{
