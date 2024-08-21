@@ -6,7 +6,7 @@ const {
 	dataComplete,
 } = require('../controllers/apartaments')
 
-router.post('/apartaments', dataComplete, postApartaments)
-router.get('/apartaments', getAllApartaments)
+router.post('/apartments', dataComplete, postApartaments)
+router.get('/apartments', getAllApartaments)
 
 module.exports = router
