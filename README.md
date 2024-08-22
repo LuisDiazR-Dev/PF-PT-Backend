@@ -31,6 +31,16 @@ Gestión de reservas y administración de áreas comunes.
 - **Notificaciones:**
 
 Sistema de notificaciones para mantener informados a los residentes.
+## Endpoints de la API
+
+### Administradores
+
+- **POST** `http://localhost:3001/admin`
+- **GET** `http://localhost:3001/admin`
+- **GET** `http://localhost:3001/admin/name/:username`
+- **GET** `http://localhost:3001/admin/:id`
+- **PUT** `http://localhost:3001/admin/:id`
+- **DELETE** `http://localhost:3001/admin/:id`
 
 ## Stack
 
