@@ -5,7 +5,6 @@ const fs = require('fs')
 const path = require('path')
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env
-console.log(DB_HOST)
 const sequelize = new Sequelize(
 	`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
 	{
@@ -35,7 +34,16 @@ let capsEntries = entries.map((entry) => [
 ])
 sequelize.models = Object.fromEntries(capsEntries)
 
-const { Apartment, Payment, Admin, CommonArea, Condominium, Notification, Resident, Suscription } = sequelize.models
+const {
+	Apartment,
+	Payment,
+	Admin,
+	CommonArea,
+	Condominium,
+	Notification,
+	Resident,
+	Suscription,
+} = sequelize.models
 
 // Aca vendrian las relaciones
 
@@ -77,14 +85,14 @@ Resident.hasMany(Payment)
 
 // Un residente puede recibir múltiples notificaciones y una notificación puede ser enviada a múltiples residentes.
 Resident.belongsToMany(Notification, {
-	through: "notification_resident",
+	through: 'notification_resident',
 	timestamps: false,
-});
+})
 
 Notification.belongsToMany(Resident, {
-	through: "resident_notification",
+	through: 'resident_notification',
 	timestamps: false,
-});
+})
 
 module.exports = {
 	...sequelize.models,
