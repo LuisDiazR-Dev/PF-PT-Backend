@@ -9,6 +9,7 @@ estamos en desarrollo...
 ## Team
 
 - Jesu Guzmán
+- Damian Moreira
 
 ## Descripción
 
