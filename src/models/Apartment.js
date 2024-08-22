@@ -19,8 +19,8 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			occupancy: {
-				type: DataTypes.ENUM('Disponible', 'Ocupado', 'Reservado'),
+			status: {
+				type: DataTypes.ENUM('Available', 'Occupied', 'Reserved'),
 				allowNull: false,
 			},
 		},

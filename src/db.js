@@ -12,6 +12,7 @@ const sequelize = new Sequelize(
 		native: false,
 	}
 )
+console.log(DB_HOST)
 const basename = path.basename(__filename)
 
 const modelDefiners = []

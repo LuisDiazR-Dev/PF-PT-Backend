@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			vehicle: {
+			vehicle_plate: {
 				type: DataTypes.STRING,
 			},
 			pet: {
