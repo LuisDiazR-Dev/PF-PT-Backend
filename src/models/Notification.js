@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
                 type: DataTypes.TEXT,
             },
 			send_date: {
-                type: dataTypes.DATE,
+                type: DataTypes.DATE,
             },
 		},
 		{
