@@ -1,12 +1,12 @@
 const router = require('express').Router()
 
 const {
-	getAllApartaments,
-	postApartaments,
+	getAllApartments,
+	postApartments,
 	dataComplete,
-} = require('../controllers/apartaments')
+} = require('../controllers/apartments')
 
-router.post('/apartments', dataComplete, postApartaments)
-router.get('/apartments', getAllApartaments)
+router.post('/apartments', dataComplete, postApartments)
+router.get('/apartments', getAllApartments)
 
 module.exports = router

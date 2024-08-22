@@ -11,19 +11,17 @@ module.exports = (sequelize) => {
                 autoIncrement: true,
 				primaryKey: true,
 			},
-            condominium_number: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
             condominium_name: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
             condominium_country: {
                 type: DataTypes.STRING,
+                allowNull: false,
             },
-            condominium_department: {
+            condominium_state: {
                 type: DataTypes.STRING,
+                allowNull: false,
               },
             condominium_logo: {
                 type: DataTypes.STRING,

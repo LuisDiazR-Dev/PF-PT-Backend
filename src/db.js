@@ -47,7 +47,7 @@ Condominium.belongsTo(Admin)
 Admin.hasMany(Resident)
 Resident.belongsTo(Admin)
 
-// Un administrador puede enviar múltiples notificaciones y un notificación es enviada por un solo administrador.
+// Un administrador puede enviar múltiples notificaciones y una notificación es enviada por un solo administrador.
 Admin.hasMany(Notification)
 Notification.belongsTo(Admin)
 
@@ -67,19 +67,19 @@ CommonArea.belongsTo(Condominium)
 Resident.hasMany(CommonArea)
 CommonArea.belongsTo(Resident)
 
-// Un administrador tiene una suscripción y una suscripción está asociada a un solo administrador..
+// Un administrador tiene una suscripción y una suscripción está asociada a varios administradores.
 Admin.belongsTo(Suscription)
-Suscription.belongsTo(Admin)
+Suscription.hasMany(Admin)
+
+// Un pago puede estar hecho por un solo residente y un residente puede hacer varios pagos.
+Payment.belongsTo(Resident)
+Resident.hasMany(Payment)
 
 // Un residente puede recibir múltiples notificaciones y una notificación puede ser enviada a múltiples residentes.
 Resident.belongsToMany(Notification, {
 	through: "notification_resident",
 	timestamps: false,
 });
-
-// Un pago puede estar hecho por un solo residente y un residente puede hacer varios pagos.
-Payment.belongsTo(Resident)
-Resident.hasMany(Payment)
 
 Notification.belongsToMany(Resident, {
 	through: "resident_notification",

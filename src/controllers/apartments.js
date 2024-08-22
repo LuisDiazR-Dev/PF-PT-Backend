@@ -1,4 +1,4 @@
-const { Apartaments } = require('../db.js')
+const { Apartments } = require('../db.js')
 
 const dataComplete = async (req, res, next) => {
 	const { id, building, numberApt, size, state } = req.body
@@ -12,16 +12,16 @@ const dataComplete = async (req, res, next) => {
 	}
 }
 
-const getAllApartaments = async (req, res) => {
+const getAllApartments = async (req, res) => {
 	try {
-		const count = await Apartaments.count()
+		const count = await Apartments.count()
 		if (count > 0) {
-			const allApartaments = await Apartaments.findAll()
-			return res.status(200).json(allApartaments)
+			const allApartments = await Apartments.findAll()
+			return res.status(200).json(allApartments)
 		} else {
 			return res
 				.status(400)
-				.json({ message: 'no se ha registrado ningú apartamento' })
+				.json({ message: 'no se ha registrado ningún apartamento' })
 		}
 	} catch (error) {
 		console.error('Error al obtener los apartamentos', error)
@@ -29,33 +29,33 @@ const getAllApartaments = async (req, res) => {
 	}
 }
 
-const postApartaments = async (req, res) => {
+const postApartments = async (req, res) => {
 	const { id, building, numberApt, size, state } = req.body
 	try {
-		const apartamentsExist = await Apartaments.findByPk(id)
+		const apartamentsExist = await Apartments.findByPk(id)
 
 		if (apartamentsExist) {
 			return res.status(409).json({
 				error: 'Este apartamento ya ha sido registrado',
 			})
 		} else {
-			const apartaments = await Apartaments.create({
+			const apartments = await Apartments.create({
 				id,
 				building,
 				numberApartament: numberApt,
 				size,
 				state,
 			})
-			return res.status(201).json(apartaments)
+			return res.status(201).json(apartments)
 		}
 	} catch (error) {
-		console.error('Error al registrar la iglesia:', error)
+		console.error('Error al registrar el apartamento:', error)
 		return res.status(500).send('Error interno del servidor')
 	}
 }
 
 module.exports = {
-	getAllApartaments,
-	postApartaments,
+	getAllApartments,
+	postApartments,
 	dataComplete,
 }

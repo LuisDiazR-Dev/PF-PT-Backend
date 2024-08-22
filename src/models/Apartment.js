@@ -11,22 +11,17 @@ module.exports = (sequelize) => {
                 autoIncrement: true,
 				primaryKey: true,
 			},
-			building: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
 			numberApartament: {
-				type: DataTypes.INTEGER,
+				type: DataTypes.STRING,
 				allowNull: false,
 			},
 			size: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			state: {
+			occupancy: {
 				type: DataTypes.ENUM('Disponible', 'Ocupado', 'Reservado'),
 				allowNull: false,
-				primaryKey: true,
 			},
 		},
 		{

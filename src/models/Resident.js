@@ -19,11 +19,11 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			vehiculo: {
+			vehicle: {
 				type: DataTypes.STRING,
 			},
-			mascota: {
-				type: DataTypes.BOOLEAN,
+			pet: {
+				type: DataTypes.STRING,
 				defaultValue: false,
 			},
 			registration_date: {

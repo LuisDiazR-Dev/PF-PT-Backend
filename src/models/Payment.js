@@ -7,8 +7,8 @@ module.exports = (sequelize) => {
 		'Payment',
 		{
 			id: {
-				type: DataTypes.UUID,
-				defaultValue: DataTypes.UUIDV4,
+				type: DataTypes.INTEGER,
+				autoIncrement: true,
 				primaryKey: true,
 			},
 			payment_state: {
