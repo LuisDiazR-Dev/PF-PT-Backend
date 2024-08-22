@@ -8,30 +8,31 @@ module.exports = (sequelize) => {
 		{
 			id: {
 				type: DataTypes.UUID,
-                defaultValue: UUIDV4,
+				defaultValue: UUIDV4,
 				primaryKey: true,
 			},
-            condominium_name: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            condominium_country: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            condominium_state: {
-                type: DataTypes.STRING,
-                allowNull: false,
-              },
-            condominium_logo: {
-                type: DataTypes.STRING,
-            },
-            condominiums_apartments_number: {
-                type: DataTypes.INTEGER,
-                autoIncrement: true,
-            },
+			condominium_name: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			condominium_country: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			condominium_state: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			condominium_logo: {
+				type: DataTypes.STRING,
+			},
+			condominiums_apartments_number: {
+				type: DataTypes.INTEGER,
+				autoIncrement: true,
+			},
 		},
 		{
+			tableName: 'Condominiums',
 			timestamps: false,
 		}
 	)
