@@ -1,549 +1,221 @@
 {
-    "administradores": [
-      {
-        "id": 1,
-        "nombre": "Juan Pérez",
-        "email": "juan.perez@example.com",
-        "condominios": [
-          {
-            "id": 1,
-            "nombre": "Condominio Las Palmas",
-            "departamentos": [
-              {
-                "numero": 101,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Carlos García",
-                  "email": "carlos.garcia@example.com",
-                  "matriculaVehiculo": "ABC123",
-                  "mascota": "Perro"
-                }
-              },
-              {
-                "numero": 102,
-                "estado": "reservado"
-              },
-              {
-                "numero": 103,
-                "estado": "disponible"
+  "administrators": [
+    {
+      "id": 1,
+      "name": "Juan Pérez",
+      "email": "juan.perez@example.com",
+      "condominiums": [
+        {
+          "id": 1,
+          "name": "Condominio Las Palmas",
+          "apartments": [
+            {
+              "number": 101,
+              "status": "occupied",
+              "resident": {
+                "name": "Carlos García",
+                "email": "carlos.garcia@example.com",
+                "vehiclePlate": "ABC123",
+                "pet": "Dog"
               }
-            ],
-            "areasComunes": ["pileta", "canchas de futbol"]
-          },
-          {
-            "id": 2,
-            "nombre": "Condominio El Bosque",
-            "departamentos": [
-              {
-                "numero": 201,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Ana López",
-                  "email": "ana.lopez@example.com",
-                  "matriculaVehiculo": "XYZ789",
-                  "mascota": "Gato"
-                }
-              },
-              {
-                "numero": 202,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Pedro Martínez",
-                  "email": "pedro.martinez@example.com",
-                  "matriculaVehiculo": "DEF456",
-                  "mascota": "Ninguna"
-                }
+            },
+            {
+              "number": 102,
+              "status": "reserved"
+            },
+            {
+              "number": 103,
+              "status": "available"
+            }
+          ],
+          "commonAreas": ["piscina", "canchas de fútbol"]
+        },
+        {
+          "id": 2,
+          "name": "Condominio El Bosque",
+          "apartments": [
+            {
+              "number": 201,
+              "status": "occupied",
+              "resident": {
+                "name": "Ana López",
+                "email": "ana.lopez@example.com",
+                "vehiclePlate": "XYZ789",
+                "pet": "Cat"
               }
-            ],
-            "areasComunes": ["salon de usos multiples", "canchas de voley"]
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "nombre": "María Fernández",
-        "email": "maria.fernandez@example.com",
-        "condominios": [
-          {
-            "id": 3,
-            "nombre": "Condominio Vista Hermosa",
-            "departamentos": [
-              {
-                "numero": 301,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Luis Ramírez",
-                  "email": "luis.ramirez@example.com",
-                  "matriculaVehiculo": "GHI789",
-                  "mascota": "Ninguna"
-                }
-              },
-              {
-                "numero": 302,
-                "estado": "disponible"
-              },
-              {
-                "numero": 303,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Sofía González",
-                  "email": "sofia.gonzalez@example.com",
-                  "matriculaVehiculo": "JKL012",
-                  "mascota": "Perro"
-                }
+            },
+            {
+              "number": 202,
+              "status": "occupied",
+              "resident": {
+                "name": "Pedro Martínez",
+                "email": "pedro.martinez@example.com",
+                "vehiclePlate": "DEF456",
+                "pet": "None"
               }
-            ],
-            "areasComunes": ["pileta", "salon de usos multiples"]
-          },
-          {
-            "id": 4,
-            "nombre": "Condominio Los Álamos",
-            "departamentos": [
-              {
-                "numero": 401,
-                "estado": "reservado"
-              },
-              {
-                "numero": 402,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Marta Díaz",
-                  "email": "marta.diaz@example.com",
-                  "matriculaVehiculo": "MNO345",
-                  "mascota": "Perro"
-                }
-              },
-              {
-                "numero": 403,
-                "estado": "disponible"
+            }
+          ],
+          "commonAreas": ["salón de usos múltiples", "canchas de voleibol"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "María Fernández",
+      "email": "maria.fernandez@example.com",
+      "condominiums": [
+        {
+          "id": 3,
+          "name": "Condominio Vista Hermosa",
+          "apartments": [
+            {
+              "number": 301,
+              "status": "occupied",
+              "resident": {
+                "name": "Luis Ramírez",
+                "email": "luis.ramirez@example.com",
+                "vehiclePlate": "GHI789",
+                "pet": "None"
               }
-            ],
-            "areasComunes": ["canchas de futbol", "canchas de voley"]
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "nombre": "Carlos Herrera",
-        "email": "carlos.herrera@example.com",
-        "condominios": [
-          {
-            "id": 5,
-            "nombre": "Condominio Sol y Mar",
-            "departamentos": [
-              {
-                "numero": 501,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Andrés Castillo",
-                  "email": "andres.castillo@example.com",
-                  "matriculaVehiculo": "PQR678",
-                  "mascota": "Gato"
-                }
-              },
-              {
-                "numero": 502,
-                "estado": "disponible"
-              },
-              {
-                "numero": 503,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Laura Torres",
-                  "email": "laura.torres@example.com",
-                  "matriculaVehiculo": "STU901",
-                  "mascota": "Ninguna"
-                }
+            },
+            {
+              "number": 302,
+              "status": "available"
+            },
+            {
+              "number": 303,
+              "status": "occupied",
+              "resident": {
+                "name": "Sofía González",
+                "email": "sofia.gonzalez@example.com",
+                "vehiclePlate": "JKL012",
+                "pet": "Dog"
               }
-            ],
-            "areasComunes": ["pileta", "canchas de futbol"]
-          },
-          {
-            "id": 6,
-            "nombre": "Condominio Sierra Verde",
-            "departamentos": [
-              {
-                "numero": 601,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Elena Ríos",
-                  "email": "elena.rios@example.com",
-                  "matriculaVehiculo": "VWX234",
-                  "mascota": "Perro"
-                }
-              },
-              {
-                "numero": 602,
-                "estado": "disponible"
-              },
-              {
-                "numero": 603,
-                "estado": "reservado"
+            }
+          ],
+          "commonAreas": ["piscina", "salón de usos múltiples"]
+        },
+        {
+          "id": 4,
+          "name": "Condominio Los Álamos",
+          "apartments": [
+            {
+              "number": 401,
+              "status": "reserved"
+            },
+            {
+              "number": 402,
+              "status": "occupied",
+              "resident": {
+                "name": "Marta Díaz",
+                "email": "marta.diaz@example.com",
+                "vehiclePlate": "MNO345",
+                "pet": "Dog"
               }
-            ],
-            "areasComunes": ["canchas de voley", "salon de usos multiples"]
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "nombre": "Laura Jiménez",
-        "email": "laura.jimenez@example.com",
-        "condominios": [
-          {
-            "id": 7,
-            "nombre": "Condominio Jardines del Lago",
-            "departamentos": [
-              {
-                "numero": 701,
-                "estado": "disponible"
-              },
-              {
-                "numero": 702,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Manuel Vargas",
-                  "email": "manuel.vargas@example.com",
-                  "matriculaVehiculo": "YZA567",
-                  "mascota": "Gato"
-                }
-              },
-              {
-                "numero": 703,
-                "estado": "reservado"
+            },
+            {
+              "number": 403,
+              "status": "available"
+            }
+          ],
+          "commonAreas": ["canchas de fútbol", "canchas de voleibol"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Carlos Herrera",
+      "email": "carlos.herrera@example.com",
+      "condominiums": [
+        {
+          "id": 5,
+          "name": "Condominio Sol y Mar",
+          "apartments": [
+            {
+              "number": 501,
+              "status": "occupied",
+              "resident": {
+                "name": "Andrés Castillo",
+                "email": "andres.castillo@example.com",
+                "vehiclePlate": "PQR678",
+                "pet": "Cat"
               }
-            ],
-            "areasComunes": ["pileta", "canchas de futbol"]
-          },
-          {
-            "id": 8,
-            "nombre": "Condominio La Rivera",
-            "departamentos": [
-              {
-                "numero": 801,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Gabriela Morales",
-                  "email": "gabriela.morales@example.com",
-                  "matriculaVehiculo": "BCD890",
-                  "mascota": "Ninguna"
-                }
-              },
-              {
-                "numero": 802,
-                "estado": "disponible"
+            },
+            {
+              "number": 502,
+              "status": "available"
+            },
+            {
+              "number": 503,
+              "status": "occupied",
+              "resident": {
+                "name": "Laura Torres",
+                "email": "laura.torres@example.com",
+                "vehiclePlate": "STU901",
+                "pet": "None"
               }
-            ],
-            "areasComunes": ["salon de usos multiples", "canchas de voley"]
-          }
-        ]
-      },
-      {
-        "id": 5,
-        "nombre": "David Gómez",
-        "email": "david.gomez@example.com",
-        "condominios": [
-          {
-            "id": 9,
-            "nombre": "Condominio Altos del Sol",
-            "departamentos": [
-              {
-                "numero": 901,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Mariana Reyes",
-                  "email": "mariana.reyes@example.com",
-                  "matriculaVehiculo": "EFG123",
-                  "mascota": "Perro"
-                }
-              },
-              {
-                "numero": 902,
-                "estado": "reservado"
-              },
-              {
-                "numero": 903,
-                "estado": "disponible"
+            }
+          ],
+          "commonAreas": ["piscina", "canchas de fútbol"]
+        },
+        {
+          "id": 6,
+          "name": "Condominio Sierra Verde",
+          "apartments": [
+            {
+              "number": 601,
+              "status": "occupied",
+              "resident": {
+                "name": "Elena Ríos",
+                "email": "elena.rios@example.com",
+                "vehiclePlate": "VWX234",
+                "pet": "Dog"
               }
-            ],
-            "areasComunes": ["pileta", "canchas de futbol"]
-          },
-          {
-            "id": 10,
-            "nombre": "Condominio Los Laureles",
-            "departamentos": [
-              {
-                "numero": 1001,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Raúl Medina",
-                  "email": "raul.medina@example.com",
-                  "matriculaVehiculo": "HIJ456",
-                  "mascota": "Ninguna"
-                }
-              },
-              {
-                "numero": 1002,
-                "estado": "disponible"
+            },
+            {
+              "number": 602,
+              "status": "available"
+            },
+            {
+              "number": 603,
+              "status": "reserved"
+            }
+          ],
+          "commonAreas": ["canchas de voleibol", "salón de usos múltiples"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Laura Jiménez",
+      "email": "laura.jimenez@example.com",
+      "condominiums": [
+        {
+          "id": 7,
+          "name": "Condominio Jardines del Lago",
+          "apartments": [
+            {
+              "number": 701,
+              "status": "occupied",
+              "resident": {
+                "name": "Ricardo Mendoza",
+                "email": "ricardo.mendoza@example.com",
+                "vehiclePlate": "YZV012",
+                "pet": "Dog"
               }
-            ],
-            "areasComunes": ["salon de usos multiples", "canchas de voley"]
-          }
-        ]
-      },
-      {
-        "id": 6,
-        "nombre": "Sara Rodríguez",
-        "email": "sara.rodriguez@example.com",
-        "condominios": [
-          {
-            "id": 11,
-            "nombre": "Condominio Lomas Verdes",
-            "departamentos": [
-              {
-                "numero": 1101,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Alejandro Ruiz",
-                  "email": "alejandro.ruiz@example.com",
-                  "matriculaVehiculo": "KLM789",
-                  "mascota": "Gato"
-                }
-              },
-              {
-                "numero": 1102,
-                "estado": "disponible"
-              },
-              {
-                "numero": 1103,
-                "estado": "reservado"
-              }
-            ],
-            "areasComunes": ["pileta", "canchas de futbol"]
-          },
-          {
-            "id": 12,
-            "nombre": "Condominio Villa del Sol",
-            "departamentos": [
-              {
-                "numero": 1201,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Fernando Sánchez",
-                  "email": "fernando.sanchez@example.com",
-                  "matriculaVehiculo": "NOP012",
-                  "mascota": "Perro"
-                }
-              },
-              {
-                "numero": 1202,
-                "estado": "disponible"
-              }
-            ],
-            "areasComunes": ["salon de usos multiples", "canchas de voley"]
-          }
-        ]
-      },
-      {
-        "id": 7,
-        "nombre": "Tomás Vega",
-        "email": "tomas.vega@example.com",
-        "condominios": [
-          {
-            "id": 13,
-            "nombre": "Condominio Mirador",
-            "departamentos": [
-              {
-                "numero": 1301,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Valeria Mendoza",
-                  "email": "valeria.mendoza@example.com",
-                  "matriculaVehiculo": "QRS345",
-                  "mascota": "Gato"
-                }
-              },
-              {
-                "numero": 1302,
-                "estado": "disponible"
-              },
-              {
-                "numero": 1303,
-                "estado": "reservado"
-              }
-            ],
-            "areasComunes": ["pileta", "canchas de futbol"]
-          },
-          {
-            "id": 14,
-            "nombre": "Condominio Vista Bella",
-            "departamentos": [
-              {
-                "numero": 1401,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Gloria Silva",
-                  "email": "gloria.silva@example.com",
-                  "matriculaVehiculo": "TUV678",
-                  "mascota": "Perro"
-                }
-              },
-              {
-                "numero": 1402,
-                "estado": "disponible"
-              }
-            ],
-            "areasComunes": ["salon de usos multiples", "canchas de voley"]
-          }
-        ]
-      },
-      {
-        "id": 8,
-        "nombre": "Paula Romero",
-        "email": "paula.romero@example.com",
-        "condominios": [
-          {
-            "id": 15,
-            "nombre": "Condominio La Colina",
-            "departamentos": [
-              {
-                "numero": 1501,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Claudio Flores",
-                  "email": "claudio.flores@example.com",
-                  "matriculaVehiculo": "WXY901",
-                  "mascota": "Ninguna"
-                }
-              },
-              {
-                "numero": 1502,
-                "estado": "disponible"
-              }
-            ],
-            "areasComunes": ["pileta", "canchas de futbol"]
-          },
-          {
-            "id": 16,
-            "nombre": "Condominio Las Lomas",
-            "departamentos": [
-              {
-                "numero": 1601,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Patricia Castro",
-                  "email": "patricia.castro@example.com",
-                  "matriculaVehiculo": "ZAB234",
-                  "mascota": "Gato"
-                }
-              },
-              {
-                "numero": 1602,
-                "estado": "disponible"
-              }
-            ],
-            "areasComunes": ["salon de usos multiples", "canchas de voley"]
-          }
-        ]
-      },
-      {
-        "id": 9,
-        "nombre": "Ricardo Torres",
-        "email": "ricardo.torres@example.com",
-        "condominios": [
-          {
-            "id": 17,
-            "nombre": "Condominio El Mirador",
-            "departamentos": [
-              {
-                "numero": 1701,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Isabel Ortega",
-                  "email": "isabel.ortega@example.com",
-                  "matriculaVehiculo": "CDE567",
-                  "mascota": "Perro"
-                }
-              },
-              {
-                "numero": 1702,
-                "estado": "disponible"
-              }
-            ],
-            "areasComunes": ["pileta", "canchas de futbol"]
-          },
-          {
-            "id": 18,
-            "nombre": "Condominio Vista Real",
-            "departamentos": [
-              {
-                "numero": 1801,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Alberto Núñez",
-                  "email": "alberto.nunez@example.com",
-                  "matriculaVehiculo": "FGH890",
-                  "mascota": "Gato"
-                }
-              },
-              {
-                "numero": 1802,
-                "estado": "disponible"
-              }
-            ],
-            "areasComunes": ["salon de usos multiples", "canchas de voley"]
-          }
-        ]
-      },
-      {
-        "id": 10,
-        "nombre": "Silvia Ruiz",
-        "email": "silvia.ruiz@example.com",
-        "condominios": [
-          {
-            "id": 19,
-            "nombre": "Condominio Los Pinos",
-            "departamentos": [
-              {
-                "numero": 1901,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Oscar Pérez",
-                  "email": "oscar.perez@example.com",
-                  "matriculaVehiculo": "IJK123",
-                  "mascota": "Ninguna"
-                }
-              },
-              {
-                "numero": 1902,
-                "estado": "disponible"
-              }
-            ],
-            "areasComunes": ["pileta", "canchas de futbol"]
-          },
-          {
-            "id": 20,
-            "nombre": "Condominio La Esperanza",
-            "departamentos": [
-              {
-                "numero": 2001,
-                "estado": "ocupado",
-                "residentes": {
-                  "nombre": "Daniela Gutiérrez",
-                  "email": "daniela.gutierrez@example.com",
-                  "matriculaVehiculo": "LMN456",
-                  "mascota": "Perro"
-                }
-              },
-              {
-                "numero": 2002,
-                "estado": "disponible"
-              }
-            ],
-            "areasComunes": ["salon de usos multiples", "canchas de voley"]
-          }
-        ]
-      }
-    ]
-  }
-  
+            },
+            {
+              "number": 702,
+              "status": "available"
+            },
+            {
+              "number": 703,
+              "status": "reserved"
+            }
+          ],
+          "commonAreas": ["piscina", "canchas de tenis"]
+        }
+      ]
+    }
+  ]
+}
