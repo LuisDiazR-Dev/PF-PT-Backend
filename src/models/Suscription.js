@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
 				primaryKey: true,
 			},
 			plan_price: {
-				dataType: DataTypes.INTEGER,
+				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
 			registration_date: {
