@@ -31,6 +31,7 @@ Gestión de reservas y administración de áreas comunes.
 - **Notificaciones:**
 
 Sistema de notificaciones para mantener informados a los residentes.
+
 ## Endpoints de la API
 
 ### Administradores
@@ -41,6 +42,15 @@ Sistema de notificaciones para mantener informados a los residentes.
 - **GET** `http://localhost:3001/admin/:id`
 - **PUT** `http://localhost:3001/admin/:id`
 - **DELETE** `http://localhost:3001/admin/:id`
+
+### Condominios
+
+- **POST** `http://localhost:3001/condominium` - Crear un nuevo condominio
+- **GET** `http://localhost:3001/condominium` - Obtener todos los condominios
+- **GET** `http://localhost:3001/condominium/images` - Obtener todas las imágenes de los condominios
+- **GET** `http://localhost:3001/condominium/:id` - Obtener un condominio por ID
+- **PUT** `http://localhost:3001/condominium/:id` - Actualizar un condominio por ID
+- **DELETE** `http://localhost:3001/condominium/:id` - Desactivar un condominio por ID
 
 ## Stack
 

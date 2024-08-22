@@ -30,6 +30,11 @@ module.exports = (sequelize) => {
 				type: DataTypes.INTEGER,
 				autoIncrement: true,
 			},
+			isActive: {
+				type: DataTypes.BOOLEAN,
+				allowNull: false,
+				defaultValue: true,
+			},
 		},
 		{
 			tableName: 'Condominiums',
