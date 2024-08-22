@@ -10,7 +10,7 @@ const updateCondominium = async (req, res) => {
     if (!name || !country || !state || !logo || !apartmentsNumber || !adminId) {
       return res.status(400).json({ message: 'Todos los campos son obligatorios' });
     }
-
+    
     // Buscar el condominio por ID
     const condominium = await Condominium.findByPk(id);
 
