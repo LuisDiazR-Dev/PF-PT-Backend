@@ -36,21 +36,29 @@ Sistema de notificaciones para mantener informados a los residentes.
 
 ### Administradores
 
-- **POST** `http://localhost:3001/admin`
-- **GET** `http://localhost:3001/admin`
-- **GET** `http://localhost:3001/admin/name/:username`
-- **GET** `http://localhost:3001/admin/:id`
-- **PUT** `http://localhost:3001/admin/:id`
-- **DELETE** `http://localhost:3001/admin/:id`
+- **POST** `http://localhost:3001/api/admin` - Crear un nuevo administrador
+- **GET** `http://localhost:3001/api/admin` - Obtener todos los administradores
+- **GET** `http://localhost:3001/api/admin/name/:username` - Obtener un administrador por nombre de usuario
+- **GET** `http://localhost:3001/api/admin/:id` - Obtener un administrador por ID
+- **PUT** `http://localhost:3001/api/admin/:id` - Actualizar un administrador por ID
+- **DELETE** `http://localhost:3001/api/admin/:id` - Eliminar un administrador por ID
 
 ### Condominios
 
-- **POST** `http://localhost:3001/condominium` - Crear un nuevo condominio
-- **GET** `http://localhost:3001/condominium` - Obtener todos los condominios
-- **GET** `http://localhost:3001/condominium/images` - Obtener todas las imágenes de los condominios
-- **GET** `http://localhost:3001/condominium/:id` - Obtener un condominio por ID
-- **PUT** `http://localhost:3001/condominium/:id` - Actualizar un condominio por ID
-- **DELETE** `http://localhost:3001/condominium/:id` - Desactivar un condominio por ID
+- **POST** `http://localhost:3001/api/condominium` - Crear un nuevo condominio
+- **GET** `http://localhost:3001/api/condominiums` - Obtener todos los condominios
+- **GET** `http://localhost:3001/api/condominium/images` - Obtener todas las imágenes de los condominios
+- **GET** `http://localhost:3001/api/condominium/:id` - Obtener un condominio por ID
+- **PUT** `http://localhost:3001/api/condominium/:id` - Actualizar un condominio por ID
+- **DELETE** `http://localhost:3001/api/condominium/:id` - Desactivar un condominio por ID
+
+### Apartamentos
+
+- **POST** `http://localhost:3001/api/apartments` - Crear un nuevo apartamento
+- **GET** `http://localhost:3001/api/apartments` - Obtener todos los apartamentos
+- **GET** `http://localhost:3001/api/apartments/:id` - Obtener un apartamento por ID
+- **PUT** `http://localhost:3001/api/apartments/:id` - Actualizar un apartamento por ID
+- **DELETE** `http://localhost:3001/api/apartments/:id` - Desactivar un apartamento por ID
 
 ## Stack
 
