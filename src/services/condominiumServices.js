@@ -3,6 +3,13 @@ const { Condominium, Admin } = require('../db')
 const createCondominiumService = async (data) => {
 	const { name, country, state, logo, apartmentsNumber, adminId } = data
 
+	if (!name || !country || !state) {
+		throw new Error('Nombre, país y estado del condominio son obligatorios')
+	}
+
+	const admin = await Admin.findByPk(adminId)
+	if (!admin) throw new Error('El administrador no existe')
+
 	const existingCondominium = await Condominium.findOne({
 		where: {
 			condominium_name: name,
@@ -12,9 +19,6 @@ const createCondominiumService = async (data) => {
 	})
 
 	if (existingCondominium) throw new Error('El condominio ya existe')
-
-	const admin = await Admin.findByPk(adminId)
-	if (!admin) throw new Error('El administrador no existe')
 
 	return await Condominium.create({
 		condominium_name: name,

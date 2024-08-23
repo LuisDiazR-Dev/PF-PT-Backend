@@ -68,12 +68,30 @@ Sistema de notificaciones para mantener informados a los residentes.
 - **PUT** `http://localhost:3001/api/common-areas/:id` - Actualizar un área común por ID
 - **DELETE** `http://localhost:3001/api/common-areas/:id` - Eliminar un área común por ID
 
+### Residentes
+
+- **POST** `http://localhost:3001/api/residents` - Crear un nuevo residente
+- **GET** `http://localhost:3001/api/residents` - Obtener todos los residentes
+- **GET** `http://localhost:3001/api/residents/:id` - Obtener un residente por ID
+- **PUT** `http://localhost:3001/api/residents/:id` - Actualizar un residente por ID
+- **DELETE** `http://localhost:3001/api/residents/:id` - Desactivar un residente por ID
+
+### Pagos
+
+- **POST** `http://localhost:3001/api/payments` - Crear un nuevo pago
+- **GET** `http://localhost:3001/api/payments` - Obtener todos los pagos
+- **GET** `http://localhost:3001/api/payments/:id` - Obtener un pago por ID
+
+### Suscripciones
+
+- **POST** `http://localhost:3001/api/subscriptions` - Crear una nueva suscripción
+- **GET** `http://localhost:3001/api/subscriptions` - Obtener todas las suscripciones
+
 ## Stack
 
 - ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 - ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-- ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ## Manejo de ramas
 

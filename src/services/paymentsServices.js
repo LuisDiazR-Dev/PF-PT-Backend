@@ -3,7 +3,13 @@ const { Payment, Resident } = require('../db')
 const createPaymentService = async (data) => {
 	const { payment_state, payment_date, residentId } = data
 
-	const resident = await Resident.findByPk(residentId)
+	const resident = await Resident.findOne({
+		where: {
+			id: residentId,
+			isActive: true,
+		},
+	})
+
 	if (!resident) throw new Error('Residente no encontrado')
 
 	return await Payment.create({

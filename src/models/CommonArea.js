@@ -26,8 +26,12 @@ module.exports = (sequelize) => {
 			availability: {
 				type: DataTypes.BOOLEAN,
 				defaultValue: true,
-				allowNull: false
-			}
+				allowNull: false,
+			},
+			imageUrl: {
+				type: DataTypes.STRING(500),
+				allowNull: true,
+			},
 		},
 		{
 			timestamps: false,

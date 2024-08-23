@@ -7,9 +7,10 @@ module.exports = (sequelize) => {
 		'Condominium',
 		{
 			id: {
-				type: DataTypes.UUID,
-				defaultValue: UUIDV4,
+				type: DataTypes.INTEGER,
 				primaryKey: true,
+				autoIncrement: true,
+				allowNull: false,
 			},
 			condominium_name: {
 				type: DataTypes.STRING,
@@ -24,12 +25,17 @@ module.exports = (sequelize) => {
 				allowNull: false,
 			},
 			condominium_logo: {
-				type: DataTypes.STRING,
+				type: DataTypes.STRING(500),
+				allowNull: true,
 			},
 			condominiums_apartments_number: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				defaultValue: 0,
+			},
+			imageUrl: {
+				type: DataTypes.STRING(500),
+				allowNull: true,
 			},
 			isActive: {
 				type: DataTypes.BOOLEAN,

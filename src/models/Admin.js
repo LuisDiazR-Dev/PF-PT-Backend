@@ -27,6 +27,10 @@ module.exports = (sequelize) => {
 				type: DataTypes.DATE,
 				defaultValue: DataTypes.NOW,
 			},
+			imageUrl: {
+				type: DataTypes.STRING(1000),
+				allowNull: true,
+			},
 			isActive: {
 				type: DataTypes.BOOLEAN,
 				defaultValue: true,

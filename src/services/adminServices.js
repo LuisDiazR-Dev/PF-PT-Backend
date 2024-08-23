@@ -8,7 +8,7 @@ const createAdminService = async (data) => {
 
 	return await Admin.create({
 		username: username,
-		password: password, //ver como cifrar en produccion
+		password: password, //ver como cifrar
 		email: email,
 	})
 }
