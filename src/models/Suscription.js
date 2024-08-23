@@ -11,12 +11,24 @@ module.exports = (sequelize) => {
 				autoIncrement: true,
 				primaryKey: true,
 			},
+			name: {
+				type: DataTypes.STRING,
+				allowNull: true,
+			},
 			plan_price: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
 			registration_date: {
 				type: DataTypes.DATE,
+				defaultValue: DataTypes.NOW,
+			},
+			AdminId: {
+				type: DataTypes.UUID,
+				references: {
+					model: 'Admins',
+					key: 'id',
+				},
 			},
 		},
 		{

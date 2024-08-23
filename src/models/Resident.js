@@ -1,4 +1,4 @@
-const { DataTypes, ENUM } = require('sequelize')
+const { DataTypes } = require('sequelize')
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
 			},
 			pet: {
 				type: DataTypes.STRING,
-				defaultValue: false,
+				defaultValue: null,
 			},
 			registration_date: {
 				type: DataTypes.DATE,
@@ -34,6 +34,13 @@ module.exports = (sequelize) => {
 				type: DataTypes.BOOLEAN,
 				defaultValue: true,
 				allowNull: false,
+			},
+			AdminId: {
+				type: DataTypes.UUID,
+				references: {
+					model: 'Admins',
+					key: 'id',
+				},
 			},
 		},
 		{

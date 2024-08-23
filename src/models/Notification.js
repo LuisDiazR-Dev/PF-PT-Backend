@@ -12,16 +12,30 @@ module.exports = (sequelize) => {
 				primaryKey: true,
 			},
 			type: {
-				type: DataTypes.ENUM('payment', 'meeting',),
-            	defaultValue: null,
-            	allowNull: false,
+				type: DataTypes.ENUM('payment', 'meeting'),
+				defaultValue: null,
+				allowNull: false,
 			},
-            content: {
-                type: DataTypes.TEXT,
-            },
+			content: {
+				type: DataTypes.TEXT,
+			},
 			send_date: {
-                type: DataTypes.DATE,
-            },
+				type: DataTypes.DATE,
+			},
+			AdminId: {
+				type: DataTypes.UUID,
+				references: {
+					model: 'Admins',
+					key: 'id',
+				},
+			},
+			ResidentId: {
+				type: DataTypes.INTEGER,
+				references: {
+					model: 'Residents',
+					key: 'id',
+				},
+			},
 		},
 		{
 			timestamps: false,

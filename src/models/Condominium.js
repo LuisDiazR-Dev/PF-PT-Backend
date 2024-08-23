@@ -28,7 +28,8 @@ module.exports = (sequelize) => {
 			},
 			condominiums_apartments_number: {
 				type: DataTypes.INTEGER,
-				autoIncrement: true,
+				allowNull: false,
+				defaultValue: 0,
 			},
 			isActive: {
 				type: DataTypes.BOOLEAN,
