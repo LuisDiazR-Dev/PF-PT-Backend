@@ -60,6 +60,14 @@ Sistema de notificaciones para mantener informados a los residentes.
 - **PUT** `http://localhost:3001/api/apartments/:id` - Actualizar un apartamento por ID
 - **DELETE** `http://localhost:3001/api/apartments/:id` - Desactivar un apartamento por ID
 
+### Áreas Comunes
+
+- **POST** `http://localhost:3001/api/common-areas` - Crear una nueva área común
+- **GET** `http://localhost:3001/api/common-areas` - Obtener todas las áreas comunes
+- **GET** `http://localhost:3001/api/common-areas/:id` - Obtener un área común por ID
+- **PUT** `http://localhost:3001/api/common-areas/:id` - Actualizar un área común por ID
+- **DELETE** `http://localhost:3001/api/common-areas/:id` - Eliminar un área común por ID
+
 ## Stack
 
 - ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
