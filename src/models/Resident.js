@@ -28,6 +28,12 @@ module.exports = (sequelize) => {
 			},
 			registration_date: {
 				type: DataTypes.DATE,
+				defaultValue: DataTypes.NOW,
+			},
+			isActive: {
+				type: DataTypes.BOOLEAN,
+				defaultValue: true,
+				allowNull: false,
 			},
 		},
 		{
