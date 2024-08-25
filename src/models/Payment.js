@@ -12,12 +12,26 @@ module.exports = (sequelize) => {
 				primaryKey: true,
 			},
 			payment_state: {
-				type: DataTypes.ENUM('approved', 'rejected', 'pending', 'in_process', 'cancelled', 'refunded'),
-            	defaultValue: null,
-            	allowNull: false,
+				type: DataTypes.ENUM('in_process', 'complete', 'sent'),
+				defaultValue: 'in_process',
+				allowNull: false,
 			},
 			payment_date: {
 				type: DataTypes.DATE,
+			},
+			AdminId: {
+				type: DataTypes.UUID,
+				references: {
+					model: 'Admins',
+					key: 'id',
+				},
+			},
+			ResidentId: {
+				type: DataTypes.INTEGER,
+				references: {
+					model: 'Residents',
+					key: 'id',
+				},
 			},
 		},
 		{

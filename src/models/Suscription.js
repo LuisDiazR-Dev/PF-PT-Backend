@@ -1,8 +1,6 @@
 const { DataTypes } = require('sequelize')
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+
 module.exports = (sequelize) => {
-	// defino el modelo
 	sequelize.define(
 		'Suscription',
 		{
@@ -11,12 +9,21 @@ module.exports = (sequelize) => {
 				autoIncrement: true,
 				primaryKey: true,
 			},
+			name: {
+				type: DataTypes.STRING,
+				allowNull: true,
+			},
 			plan_price: {
 				type: DataTypes.INTEGER,
-				allowNull: false,
+				allowNull: true,
 			},
 			registration_date: {
 				type: DataTypes.DATE,
+				defaultValue: DataTypes.NOW,
+			},
+			isActive: {
+				type: DataTypes.BOOLEAN,
+				defaultValue: true,
 			},
 		},
 		{

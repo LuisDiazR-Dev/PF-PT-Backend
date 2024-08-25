@@ -8,10 +8,10 @@ module.exports = (sequelize) => {
 		{
 			id: {
 				type: DataTypes.INTEGER,
-                autoIncrement: true,
+				autoIncrement: true,
 				primaryKey: true,
 			},
-			numberApartament: {
+			numberApartment: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
@@ -22,6 +22,14 @@ module.exports = (sequelize) => {
 			status: {
 				type: DataTypes.ENUM('Available', 'Occupied', 'Reserved'),
 				allowNull: false,
+			},
+			isActive: {
+				type: DataTypes.BOOLEAN,
+				defaultValue: true,
+			},
+			imageUrl: {
+				type: DataTypes.STRING(500),
+				allowNull: true,
 			},
 		},
 		{

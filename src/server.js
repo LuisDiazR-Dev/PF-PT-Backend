@@ -20,6 +20,10 @@ server.use(morgan('dev'))
 server.use(express.json())
 server.use(cors())
 
-server.use(router)
+server.use('/api', router)
+
+server.use((err, req, res, next) => {
+	res.status(err.statusCode || 500).json({ error: err.message })
+})
 
 module.exports = server
