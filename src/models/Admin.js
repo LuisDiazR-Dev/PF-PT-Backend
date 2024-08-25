@@ -35,6 +35,14 @@ module.exports = (sequelize) => {
 				type: DataTypes.BOOLEAN,
 				defaultValue: true,
 			},
+			SuscriptionId: {
+				type: DataTypes.INTEGER,
+				references: {
+					model: 'Suscriptions',
+					key: 'id',
+				},
+				allowNull: true,
+			},
 		},
 		{
 			timestamps: false,

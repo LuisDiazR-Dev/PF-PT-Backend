@@ -42,6 +42,10 @@ module.exports = (sequelize) => {
 					key: 'id',
 				},
 			},
+			apartmentNumber: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
 		},
 		{
 			timestamps: false,

@@ -1,7 +1,8 @@
 const { Condominium, Admin } = require('../db')
 
 const createCondominiumService = async (data) => {
-	const { name, country, state, logo, apartmentsNumber, adminId } = data
+	const { name, country, state, logo, apartmentsNumber, adminId, imageUrl } =
+		data
 
 	if (!name || !country || !state) {
 		throw new Error('Nombre, país y estado del condominio son obligatorios')
@@ -27,6 +28,7 @@ const createCondominiumService = async (data) => {
 		condominium_logo: logo,
 		condominiums_apartments_number: apartmentsNumber,
 		AdminId: adminId,
+		imageUrl,
 	})
 }
 
@@ -43,7 +45,8 @@ const getCondominiumImageService = async () => {
 }
 
 const updateCondominiumService = async (id, data) => {
-	const { name, country, state, logo, apartmentsNumber, adminId } = data
+	const { name, country, state, logo, apartmentsNumber, adminId, imageUrl } =
+		data
 
 	const condominium = await Condominium.findByPk(id)
 	if (!condominium) throw new Error('Condominio no encontrado')
@@ -58,6 +61,7 @@ const updateCondominiumService = async (id, data) => {
 		condominium_logo: logo,
 		condominiums_apartments_number: apartmentsNumber,
 		AdminId: adminId,
+		imageUrl,
 	})
 }
 
