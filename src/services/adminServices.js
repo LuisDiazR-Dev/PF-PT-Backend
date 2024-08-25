@@ -1,7 +1,7 @@
 const { Admin } = require('../db')
 
 const createAdminService = async (data) => {
-	const { username, password, email } = data
+	const { username, password, email, SuscriptionId, imageUrl } = data
 
 	const existingAdmin = await Admin.findOne({ where: { email: email } })
 	if (existingAdmin) throw new Error('El administrador ya existe')
@@ -10,6 +10,8 @@ const createAdminService = async (data) => {
 		username: username,
 		password: password, //ver como cifrar
 		email: email,
+		SuscriptionId,
+		imageUrl,
 	})
 }
 

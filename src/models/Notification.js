@@ -36,6 +36,10 @@ module.exports = (sequelize) => {
 					key: 'id',
 				},
 			},
+			isActive: {
+				type: DataTypes.BOOLEAN,
+				defaultValue: true,
+			},
 		},
 		{
 			timestamps: false,

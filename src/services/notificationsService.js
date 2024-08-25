@@ -33,6 +33,9 @@ const getResidentNotificationsService = async (residentName) => {
 		where: { name: residentName },
 	})
 	if (!resident) throw new Error('Residente no encontrado')
+	return await Notification.findAll({
+		where: { ResidentId: resident.id, isActive: true },
+	})
 }
 
 const getNotificationByIdService = async (id) => {

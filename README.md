@@ -89,6 +89,15 @@ Sistema de notificaciones para mantener informados a los residentes.
 - **POST** `http://localhost:3001/api/subscriptions` - Crear una nueva suscripción
 - **GET** `http://localhost:3001/api/subscriptions` - Obtener todas las suscripciones
 
+### NOtificaciones
+
+- **POST** `http://localhost:3001/api/notifications` - Crear una nueva notificacion
+- **GET** `http://localhost:3001/api/notifications` - Obtener todas las notificaciones
+
+### Carga de datos inicial
+
+- **GET** `http://localhost:3001/api/data/initial-data` - Obtener datos para carga inicial
+
 ## Stack
 
 - ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)

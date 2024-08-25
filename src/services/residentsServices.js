@@ -1,4 +1,4 @@
-const { Resident, Condominium } = require('../db')
+const { Resident, Condominium, Apartment } = require('../db')
 
 const createResidentService = async (data) => {
 	const {
@@ -9,10 +9,21 @@ const createResidentService = async (data) => {
 		registration_date,
 		isActive,
 		condominiumId,
+		apartmentNumber,
+		AdminId,
 	} = data
 
 	const condominium = await Condominium.findByPk(condominiumId)
 	if (!condominium) throw new Error('El Condominio no existe')
+
+	const apartment = await Apartment.findOne({
+		where: {
+			numberApartment: apartmentNumber,
+			CondominiumId: condominiumId,
+			occupancy: 'Disponible',
+		},
+	})
+	if (!apartment) throw new Error('El apartamento no está disponible')
 
 	return await Resident.create({
 		name,
@@ -22,6 +33,8 @@ const createResidentService = async (data) => {
 		registration_date,
 		isActive,
 		CondominiumId: condominiumId,
+		apartmentNumber,
+		AdminId,
 	})
 }
 
@@ -52,6 +65,8 @@ const updateResidentService = async (id, data) => {
 		registration_date,
 		isActive,
 		condominiumId,
+		apartmentNumber,
+		AdminId,
 	} = data
 
 	const resident = await Resident.findByPk(id)
@@ -62,6 +77,15 @@ const updateResidentService = async (id, data) => {
 		if (!condominium) throw new Error('El Condominio no existe')
 	}
 
+	const apartment = await Apartment.findOne({
+		where: {
+			numberApartment: apartmentNumber,
+			CondominiumId: condominiumId,
+			occupancy: 'Disponible',
+		},
+	})
+	if (!apartment) throw new Error('El apartamento no está disponible')
+
 	return await resident.update({
 		name,
 		email,
@@ -70,6 +94,8 @@ const updateResidentService = async (id, data) => {
 		registration_date,
 		isActive,
 		CondominiumId: condominiumId,
+		apartmentNumber,
+		AdminId,
 	})
 }
 
