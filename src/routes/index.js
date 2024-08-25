@@ -7,6 +7,7 @@ const paymentsRoutes = require('./paymentsRoutes')
 const residentsRoutes = require('./residentsRoutes')
 const notificationsRoutes = require('./notificationsRoutes')
 const suscriptionsRoutes = require('./suscriptionsRoutes')
+const initialDataRoutes = require('./initialDataRoutes')
 
 const router = Router()
 
@@ -18,5 +19,7 @@ router.use('/payments', paymentsRoutes)
 router.use('/residents', residentsRoutes)
 router.use('/notifications', notificationsRoutes)
 router.use('/suscriptions', suscriptionsRoutes)
+
+router.use('/data', initialDataRoutes)
 
 module.exports = router
