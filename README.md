@@ -9,6 +9,8 @@ estamos en desarrollo...
 ## Team
 
 - Jesu Guzmán
+- Damian Moreira
+- Nydia Massiel Sánchez
 
 ## Descripción
 

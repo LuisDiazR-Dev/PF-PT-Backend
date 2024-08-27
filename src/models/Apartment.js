@@ -19,9 +19,9 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			occupancy: {
-				type: DataTypes.ENUM('Disponible', 'Ocupado', 'Reservado'),
-				allowNull: false,
+			status: {
+				type: DataTypes.ENUM('Disponible', 'Ocupado', 'Reservedo'),
+				allowNull: true,
 			},
 			isActive: {
 				type: DataTypes.BOOLEAN,
@@ -30,6 +30,9 @@ module.exports = (sequelize) => {
 			imageUrl: {
 				type: DataTypes.STRING(500),
 				allowNull: true,
+			},
+			ResidentId: {
+				type: DataTypes.STRING,
 			},
 		},
 		{
