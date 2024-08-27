@@ -4,23 +4,23 @@ const createResidentService = async (data) => {
 	const {
 		name,
 		email,
-		vehicle,
+		vehicle_plate,
 		pet,
 		registration_date,
 		isActive,
-		condominiumId,
+		CondominiumId,
 		apartmentNumber,
 		AdminId,
 	} = data
 
-	const condominium = await Condominium.findByPk(condominiumId)
+	const condominium = await Condominium.findByPk(CondominiumId)
 	if (!condominium) throw new Error('El Condominio no existe')
 
 	const apartment = await Apartment.findOne({
 		where: {
 			numberApartment: apartmentNumber,
-			CondominiumId: condominiumId,
-			occupancy: 'Disponible',
+			CondominiumId,
+			status: 'Disponible',
 		},
 	})
 	if (!apartment) throw new Error('El apartamento no está disponible')
@@ -28,11 +28,11 @@ const createResidentService = async (data) => {
 	return await Resident.create({
 		name,
 		email,
-		vehicle,
+		vehicle_plate,
 		pet,
 		registration_date,
 		isActive,
-		CondominiumId: condominiumId,
+		CondominiumId,
 		apartmentNumber,
 		AdminId,
 	})
@@ -60,11 +60,11 @@ const updateResidentService = async (id, data) => {
 	const {
 		name,
 		email,
-		vehicle,
+		vehicle_plate,
 		pet,
 		registration_date,
 		isActive,
-		condominiumId,
+		CondominiumId,
 		apartmentNumber,
 		AdminId,
 	} = data
@@ -72,16 +72,16 @@ const updateResidentService = async (id, data) => {
 	const resident = await Resident.findByPk(id)
 	if (!resident) throw new Error('Residente no encontrado')
 
-	if (condominiumId) {
-		const condominium = await Condominium.findByPk(condominiumId)
+	if (CondominiumId) {
+		const condominium = await Condominium.findByPk(CondominiumId)
 		if (!condominium) throw new Error('El Condominio no existe')
 	}
 
 	const apartment = await Apartment.findOne({
 		where: {
 			numberApartment: apartmentNumber,
-			CondominiumId: condominiumId,
-			occupancy: 'Disponible',
+			CondominiumId,
+			status: 'Disponible',
 		},
 	})
 	if (!apartment) throw new Error('El apartamento no está disponible')
@@ -89,11 +89,11 @@ const updateResidentService = async (id, data) => {
 	return await resident.update({
 		name,
 		email,
-		vehicle,
+		vehicle_plate,
 		pet,
 		registration_date,
 		isActive,
-		CondominiumId: condominiumId,
+		CondominiumId,
 		apartmentNumber,
 		AdminId,
 	})
