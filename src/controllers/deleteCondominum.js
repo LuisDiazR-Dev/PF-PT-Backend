@@ -19,6 +19,7 @@ const deleteCondominium = async (req, res) => {
 						message: 'You are not authorized to delete this condominium',
 					})
 			}
+            
 			// Eliminar el condominio
 			await Condominium.destroy({ where: { id: condominiumId } })
 
