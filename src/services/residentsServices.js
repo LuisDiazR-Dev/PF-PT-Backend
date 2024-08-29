@@ -86,7 +86,7 @@ const updateResidentService = async (id, data) => {
 	})
 	if (!apartment) throw new Error('El apartamento no está disponible')
 
-	return await resident.update({
+	return await Resident.update({
 		name,
 		email,
 		vehicle_plate,
