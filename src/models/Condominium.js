@@ -42,6 +42,14 @@ module.exports = (sequelize) => {
 				allowNull: false,
 				defaultValue: true,
 			},
+
+			AdminId: {
+				type: DataTypes.UUID,
+				references: {
+					model: 'Admins',
+					key: 'id',
+				},
+			},
 		},
 		{
 			tableName: 'Condominiums',

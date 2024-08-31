@@ -16,7 +16,9 @@ const createAdminService = async (data) => {
 }
 
 const getAllAdminsService = async () => {
-	return await Admin.findAll({ where: { isActive: true } })
+	const admins = await Admin.findAll()
+	if (!admins) throw new Error('No se se encontraron administradores')
+	return admins
 }
 
 const getAdminByNameService = async (username) => {
@@ -34,9 +36,26 @@ const getAdminByIdService = async (id) => {
 }
 
 const updateAdminService = async (id, data) => {
-	const [updated] = await Admin.update(data, { where: { id }, returning: true })
-	if (!updated) throw new Error('Administrador no encontrado')
-	return updated
+	const {
+		username,
+		password, //ver como cifrar
+		email,
+		imageUrl,
+		isActive,
+		SuscriptionId,
+	} = data
+
+	const userAdmin = await Admin.findByPk(id)
+	if (!userAdmin) throw new Error('Admin no existe')
+
+	const [rowsUpdated, [updatedAdmin]] = await Admin.update(
+		{ username, password, email, imageUrl, isActive, SuscriptionId },
+		{ where: { id }, returning: true }
+	)
+
+	if (!rowsUpdated === 0) throw new Error('Administrador no encontrado')
+
+	return updatedAdmin
 }
 
 const deleteAdminService = async (id) => {

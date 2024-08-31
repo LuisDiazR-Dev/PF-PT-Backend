@@ -1,7 +1,7 @@
-const { Apartment, Condominium } = require('../db')
+const { Apartment, Condominium, Resident } = require('../db')
 
 const createApartmentService = async (data) => {
-	const { numberApartment, size, status, CondominiumId } = data
+	const { numberApartment, size, status, CondominiumId, imageUrl } = data
 
 	const condominium = await Condominium.findByPk(CondominiumId)
 	if (!condominium) throw new Error('El Condominio no existe')
@@ -11,6 +11,7 @@ const createApartmentService = async (data) => {
 		size,
 		status,
 		CondominiumId,
+		imageUrl,
 	})
 }
 
@@ -32,7 +33,14 @@ const getApartmentsByIdService = async (id) => {
 }
 
 const updateApartmentService = async (id, data) => {
-	const { numberApartment, size, status, CondominiumId } = data
+	const {
+		numberApartment,
+		size,
+		status,
+		CondominiumId,
+		ResidentName: name,
+		imageUrl,
+	} = data
 
 	const apartment = await Apartment.findByPk(id)
 	if (!apartment) throw new Error('Apartamento no encontrado')
@@ -45,6 +53,8 @@ const updateApartmentService = async (id, data) => {
 		size,
 		status,
 		CondominiumId,
+		ResidentName: name,
+		imageUrl,
 	})
 }
 
