@@ -11,6 +11,7 @@ estamos en desarrollo...
 - Jesu Guzmán
 - Damian Moreira
 - Nydia Massiel Sánchez
+- Luis Diaz
 
 ## Descripción
 

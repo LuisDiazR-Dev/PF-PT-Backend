@@ -8,6 +8,7 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env
 const sequelize = new Sequelize(
 	`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
 	{
+		// logging: console.log, // Muestra las consultas SQL en la consola
 		logging: false,
 		native: false,
 	}
