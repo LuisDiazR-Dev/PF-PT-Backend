@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
 				autoIncrement: true,
 				allowNull: false,
 			},
+			isActive: {
+				type: DataTypes.BOOLEAN,
+				defaultValue: true,
+			},
 			area_name: {
 				type: DataTypes.STRING,
 				allowNull: false,
