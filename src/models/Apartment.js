@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING(500),
 				allowNull: true,
 			},
-			ResidentId: {
+			ResidentName: {
 				type: DataTypes.STRING,
 			},
 		},

@@ -73,8 +73,8 @@ Condominium.hasMany(CommonArea)
 CommonArea.belongsTo(Condominium)
 
 // Un residente puede realizar múltiples reservas de áreas comunes y una reserva puede ser realizada por un residente.
-Resident.hasMany(CommonArea)
-CommonArea.belongsTo(Resident)
+Admin.hasMany(CommonArea)
+CommonArea.belongsTo(Admin)
 
 // Un administrador tiene una suscripción y una suscripción está asociada a varios administradores.
 Admin.belongsTo(Suscription)
