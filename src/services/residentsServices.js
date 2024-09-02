@@ -9,21 +9,9 @@ const createResidentService = async (data) => {
 		registration_date,
 		isActive,
 		CondominiumId,
-		apartmentNumber,
+		ApartmentId: id,
 		AdminId,
 	} = data
-
-	const condominium = await Condominium.findByPk(CondominiumId)
-	if (!condominium) throw new Error('El Condominio no existe')
-
-	const apartment = await Apartment.findOne({
-		where: {
-			numberApartment: apartmentNumber,
-			CondominiumId,
-			status: 'Disponible',
-		},
-	})
-	if (!apartment) throw new Error('El apartamento no está disponible')
 
 	return await Resident.create({
 		name,
@@ -33,7 +21,7 @@ const createResidentService = async (data) => {
 		registration_date,
 		isActive,
 		CondominiumId,
-		apartmentNumber,
+		ApartmentId: id,
 		AdminId,
 	})
 }
@@ -65,28 +53,21 @@ const updateResidentService = async (id, data) => {
 		registration_date,
 		isActive,
 		CondominiumId,
-		apartmentNumber,
+		ApartmentId,
 		AdminId,
 	} = data
 
 	const resident = await Resident.findByPk(id)
 	if (!resident) throw new Error('Residente no encontrado')
 
-	if (CondominiumId) {
-		const condominium = await Condominium.findByPk(CondominiumId)
-		if (!condominium) throw new Error('El Condominio no existe')
-	}
-
 	const apartment = await Apartment.findOne({
 		where: {
-			numberApartment: apartmentNumber,
-			CondominiumId,
 			status: 'Disponible',
 		},
 	})
 	if (!apartment) throw new Error('El apartamento no está disponible')
 
-	return await Resident.update({
+	return await resident.update({
 		name,
 		email,
 		vehicle_plate,
@@ -94,7 +75,7 @@ const updateResidentService = async (id, data) => {
 		registration_date,
 		isActive,
 		CondominiumId,
-		apartmentNumber,
+		ApartmentId,
 		AdminId,
 	})
 }

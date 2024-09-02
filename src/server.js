@@ -26,8 +26,4 @@ server.use((err, req, res, next) => {
 	res.status(err.statusCode || 500).json({ error: err.message })
 })
 
-server.use((req, res, next) => {
-  res.status(404).json({ error: 'Not Found' });
-});
-
 module.exports = server
