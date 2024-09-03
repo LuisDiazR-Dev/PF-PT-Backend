@@ -21,6 +21,7 @@ module.exports = (sequelize) => {
 			},
 			vehicle_plate: {
 				type: DataTypes.STRING,
+				allowNull: true,
 			},
 			pet: {
 				type: DataTypes.STRING,
@@ -42,8 +43,8 @@ module.exports = (sequelize) => {
 					key: 'id',
 				},
 			},
-			apartmentNumber: {
-				type: DataTypes.STRING,
+			ApartmentId: {
+				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
 		},

@@ -1,67 +1,70 @@
-const { Condominium, Admin } = require('../db')
+const { Condominium, Admin, CommonAreas } = require('../db')
 
 const createCondominiumService = async (data) => {
-	const { name, country, state, logo, apartmentsNumber, adminId, imageUrl } =
-		data
-
-	if (!name || !country || !state) {
-		throw new Error('Nombre, país y estado del condominio son obligatorios')
-	}
-
-	const admin = await Admin.findByPk(adminId)
-	if (!admin) throw new Error('El administrador no existe')
-
-	const existingCondominium = await Condominium.findOne({
-		where: {
-			condominium_name: name,
-			condominium_country: country,
-			condominium_state: state,
-		},
-	})
-
-	if (existingCondominium) throw new Error('El condominio ya existe')
+	const {
+		condominium_name,
+		condominium_country,
+		condominium_state,
+		condominium_logo,
+		condominiums_apartments_number,
+		isActive,
+		imageUrl,
+		AdminId,
+	} = data
 
 	return await Condominium.create({
-		condominium_name: name,
-		condominium_country: country,
-		condominium_state: state,
-		condominium_logo: logo,
-		condominiums_apartments_number: apartmentsNumber,
-		AdminId: adminId,
+		condominium_name,
+		condominium_country,
+		condominium_state,
+		condominium_logo,
+		condominiums_apartments_number,
+		isActive,
+		AdminId,
 		imageUrl,
 	})
 }
 
 const getAllCondominiumService = async () => {
 	return await Condominium.findAll({
-		include: [{ model: Admin, attributes: ['username', 'email'] }],
+		where: {
+			isActive: true, // Asegura que solo se obtengan condominios activos
+		},
 	})
 }
 
 const getCondominiumImageService = async () => {
 	return await Condominium.findAll({
-		attributes: ['condominium_logo'],
+		attributes: ['condominium_logo', 'imageUrl'],
 	})
 }
 
 const updateCondominiumService = async (id, data) => {
-	const { name, country, state, logo, apartmentsNumber, adminId, imageUrl } =
-		data
+	const {
+		condominium_name,
+		condominium_country,
+		condominium_state,
+		condominium_logo,
+		condominiums_apartments_number,
+		isActive,
+		AdminId,
+		imageUrl,
+	} = data
 
 	const condominium = await Condominium.findByPk(id)
 	if (!condominium) throw new Error('Condominio no encontrado')
 
-	const admin = await Admin.findByPk(adminId)
+	const admin = await Admin.findByPk(AdminId)
 	if (!admin) throw new Error('El administrador no existe')
 
 	return await condominium.update({
-		condominium_name: name,
-		condominium_country: country,
-		condominium_state: state,
-		condominium_logo: logo,
-		condominiums_apartments_number: apartmentsNumber,
-		AdminId: adminId,
+		condominium_name,
+		condominium_country,
+		condominium_state,
+		condominium_logo,
+		condominiums_apartments_number,
+		isActive,
 		imageUrl,
+		AdminId,
 	})
 }
 

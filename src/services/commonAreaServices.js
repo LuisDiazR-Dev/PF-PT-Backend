@@ -1,9 +1,18 @@
 const { CommonArea, Condominium } = require('../db')
 
 const createCommonAreaService = async (data) => {
-	const { area_name, description, capacity, availability, condominiumId } = data
+	const {
+		area_name,
+		description,
+		capacity,
+		availability,
+		imageUrl,
+		condominium_name,
+		CondominiumId,
+		AdminId,
+	} = data
 
-	const condominium = await Condominium.findByPk(condominiumId)
+	const condominium = await Condominium.findByPk(CondominiumId)
 	if (!condominium) throw new Error('Condominio no encontrado')
 
 	return await CommonArea.create({
@@ -11,7 +20,10 @@ const createCommonAreaService = async (data) => {
 		description,
 		capacity,
 		availability,
-		CondominiumId: condominiumId,
+		imageUrl,
+		AdminId,
+		condominium_name,
+		CondominiumId,
 	})
 }
 
@@ -30,13 +42,22 @@ const getCommonAreaByIdService = async (id) => {
 }
 
 const updateCommonAreaService = async (id, data) => {
-	const { area_name, description, capacity, availability, condominiumId } = data
+	const {
+		area_name,
+		description,
+		capacity,
+		availability,
+		imageUrl,
+		CondominiumId,
+		condominium_name,
+		AdminId,
+	} = data
 
 	const commonArea = await CommonArea.findByPk(id)
 	if (!commonArea) throw new Error('Área común no encontrada')
 
-	if (condominiumId) {
-		const condominium = await Condominium.findByPk(condominiumId)
+	if (CondominiumId) {
+		const condominium = await Condominium.findByPk(CondominiumId)
 		if (!condominium) throw new Error('Condominio no encontrado')
 	}
 	return await commonArea.update({
@@ -44,14 +65,17 @@ const updateCommonAreaService = async (id, data) => {
 		description,
 		capacity,
 		availability,
-		CondominiumId: condominiumId,
+		imageUrl,
+		AdminId,
+		condominium_name,
+		CondominiumId,
 	})
 }
 
 const deleteCommonAreaService = async (id) => {
 	const commonArea = await CommonArea.findByPk(id)
 	if (!commonArea) throw new Error('Área común no encontrada')
-	return await commonArea.destroy()
+	return await commonArea.update({ isActive: false })
 }
 
 module.exports = {
