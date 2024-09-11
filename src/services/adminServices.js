@@ -32,11 +32,7 @@ const createAdminService = async (data) => {
 }
 
 const getAllAdminsService = async () => {
-	return await Admin.findAll({
-		where: {
-			isActive: true,
-		},
-	})
+	return await Admin.findAll()
 }
 
 const getAdminByNameService = async (username) => {
@@ -48,7 +44,7 @@ const getAdminByNameService = async (username) => {
 }
 
 const getAdminByIdService = async (id) => {
-	const admin = await Admin.findOne({ where: { id, isActive: true } })
+	const admin = await Admin.findOne({ where: { id } })
 	if (!admin) throw new Error('Administrador no encontrado')
 	return admin
 }
