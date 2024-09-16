@@ -20,7 +20,6 @@ server.use(morgan('dev'));
 server.use(express.json());
 server.use(cors());
 
-// Configurar la sesión para Passport
 server.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
