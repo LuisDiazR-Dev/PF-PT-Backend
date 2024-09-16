@@ -1,30 +1,43 @@
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const { Admin } = require('../db')
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const { Admin } = require('../db');
+const bcrypt = require('bcryptjs');
 
-const authenticateAdminService = async (email, password) => {
-	// Buscar el administrador en la base de datos
-	const admin = await Admin.findOne({ where: { email, isActive: true } })
-	if (!admin) throw new Error('Administrador no encontrado')
+// Configurar estrategia de Google OAuth
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: process.env.URL_API_GOOGLE,
+  },
+  async (accessToken, refreshToken, profile, done) => {
+    try {
+      // Verificar si el usuario ya existe en la base de datos
+      let admin = await Admin.findOne({ where: { email: profile.emails[0].value } });
+      
+      // Si no existe, lo creamos
+      if (!admin) {
 
-	// Comparar la contraseña proporcionada con la contraseña almacenada (hasheada)
-	const isMatch = await bcrypt.compare(password, admin.password)
-	if (!isMatch) throw new Error('Contraseña incorrecta')
+		const passwordRandom = await bcrypt.hash(profile.id + process.env.JWT_SECRET, 10);
 
-	// Crear el payload del token
-	const payload = {
-		admin: {
-			id: admin.id,
-			email: admin.email,
-		},
-	}
+        admin = await Admin.create({
+          username: profile.displayName,
+          email: profile.emails[0].value,
+          password: passwordRandom, // No guardamos contraseña para OAuth
+          isActive: true,
+        });
+      }
 
-	// Firmar el token JWT
-	const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' })
+      // Retornar el admin encontrado o creado
+      return done(null, admin);
+    } catch (error) {
+      return done(error, null);
+    }
+  }
+));
 
-	return { admin, token }
-}
-
-module.exports = {
-	authenticateAdminService,
-}
+// Serializar y deserializar el usuario en la sesión
+passport.serializeUser((admin, done) => done(null, admin.id));
+passport.deserializeUser(async (id, done) => {
+  const admin = await Admin.findByPk(id);
+  done(null, admin);
+});
