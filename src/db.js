@@ -4,7 +4,10 @@ const { Sequelize } = require('sequelize')
 const fs = require('fs')
 const path = require('path')
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env
+
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_DEPLOY } = process.env
+
+// ! Local
 const sequelize = new Sequelize(
 	`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
 	{
@@ -12,6 +15,24 @@ const sequelize = new Sequelize(
 		native: false,
 	}
 )
+
+// ! Deploy
+// const sequelize = new Sequelize(
+	
+// 	DB_DEPLOY,
+// 	{ 
+// 		logging: false,
+// 		native: false,
+// 	}
+// )
+
+
+
+
+
+
+
+
 console.log(DB_HOST)
 const basename = path.basename(__filename)
 

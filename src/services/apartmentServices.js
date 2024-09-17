@@ -40,7 +40,7 @@ const updateApartmentService = async (id, data) => {
 	const apartment = await Apartment.findByPk(id)
 	if (!apartment) throw new Error('Apartamento no encontrado')
 
-	const condominium = await Condominium.findByPk(id)
+	const condominium = await Condominium.findByPk(CondominiumId)
 	if (!condominium) throw new Error('El condominio no existe')
 
 	return await apartment.update({

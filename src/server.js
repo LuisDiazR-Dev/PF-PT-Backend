@@ -8,6 +8,10 @@ require('./services/authServiceGoogle');
 
 const server = express();
 
+server.use(morgan('dev'))
+server.use(express.json())
+server.use(cors())
+
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Credentials', 'true');
@@ -16,9 +20,9 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use(morgan('dev'));
-server.use(express.json());
-server.use(cors());
+
+
+
 
 server.use(session({
   secret: process.env.SESSION_SECRET,
