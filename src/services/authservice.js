@@ -11,7 +11,7 @@ const authenticateAdminService = async (email, password) => {
 	const isMatch = await bcrypt.compare(password, admin.password)
 	if (!isMatch) throw new Error('Contraseña incorrecta')
 
-	// Crear el payload del token
+	// Crear el payload del token.
 	const payload = {
 		admin: {
 			id: admin.id,
