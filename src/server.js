@@ -4,7 +4,7 @@ const passport = require('passport');
 const router = require('./routes');
 const morgan = require('morgan');
 const cors = require('cors');
-require('./services/authService');
+require('./services/authServiceGoogle');
 
 const server = express();
 
