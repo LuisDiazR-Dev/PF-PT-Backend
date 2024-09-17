@@ -1,5 +1,6 @@
 const passport = require('passport');
 const catchAsync = require('../utils/catchAsync');
+const { authenticateAdminService } = require('../services/authService')
 
 const loginAdminController = async (req, res) => {
   const { email, password } = req.body;
