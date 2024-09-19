@@ -6,6 +6,8 @@ destinado para la gestión de condominios y conjuntos de apartamentos.
 La aplicación permite al administrador gestionar residentes, áreas comunes y notificaciones.
 estamos en desarrollo...
 
+Para actulizar...
+
 ## Team
 
 - Jesu Guzmán
