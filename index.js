@@ -1,7 +1,7 @@
 require('dotenv').config()
 const server = require('./src/server.js')
 const { conn } = require('./src/db.js')
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 8080
 
 
 // const loadInitialData = require('./src/_seeders/z_index.js');
