@@ -12,7 +12,7 @@ const server = express();
 server.use(morgan('dev'));
 server.use(express.json());
 server.use(cors({
-  origin: '*',
+  origin: 'https://pf-pt-radmin.vercel.app',  // Cambia esto al dominio de tu frontend
   credentials: true,
   allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
   methods: 'GET, POST, OPTIONS, PUT, DELETE'
