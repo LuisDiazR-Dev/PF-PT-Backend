@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080
 // const loadInitialData = require('./src/_seeders/z_index.js');
 
 conn
-	.sync({ alter: true })
+	.sync({ force: true })
 	.then(async () => {
 		server.listen(PORT, () => {
 			console.log(`Server listening on port ${PORT}`)

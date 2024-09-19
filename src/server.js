@@ -13,12 +13,20 @@ server.use(morgan('dev'));
 server.use(express.json());
 
 // Configuración de CORS
-server.use(cors({
-  origin: 'https://pf-pt-radmin.vercel.app',  // Cambia esto al dominio de tu frontend
-  credentials: true,
-  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
-  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE']
-}));
+app.use(cors())
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*')
+	res.header('Access-Control-Allow-Credentials', 'true')
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+	res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
+	next()
+})
+// server.use(cors({
+//   origin: 'https://pf-pt-radmin.vercel.app',  // Cambia esto al dominio de tu frontend
+//   credentials: true,
+//   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
+//   methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE']
+// }));
 
 // Manejo de las solicitudes preflight (OPTIONS)
 server.options('*', cors({
@@ -27,6 +35,8 @@ server.options('*', cors({
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
   methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE']
 }));
+
+
 
 // Configuración de las sesiones y Passport
 if (!process.env.SESSION_SECRET) {
