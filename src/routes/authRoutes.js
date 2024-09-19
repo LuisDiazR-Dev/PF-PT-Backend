@@ -1,8 +1,15 @@
-const express = require('express')
-const authController = require('../controllers/authController')
+const express = require('express');
+const authController = require('../controllers/authController');
+const router = express.Router();
+const passport = require('passport');
 
-const router = express.Router()
+router.post('/login', authController.loginAdminController);
 
-router.post('/login', authController.loginAdminController)
+router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-module.exports = router
+router.get('/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/login' }), 
+    authController.googleAuthCallbackController
+  );
+
+  module.exports = router;
