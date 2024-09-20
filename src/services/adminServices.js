@@ -2,6 +2,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { Admin } = require('../db')
 
+const { sendWelcomeEmail } = require('../emailService'); // Asegúrate de que la ruta sea correcta
+
 const createAdminService = async (data) => {
 	const { username, password, email, SuscriptionId, imageUrl } = data
 
@@ -27,6 +29,9 @@ const createAdminService = async (data) => {
 	}
 
 	const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' })
+
+	// Envía el correo electrónico de bienvenida
+	sendWelcomeEmail(email);
 
 	return { newAdmin, token }
 }

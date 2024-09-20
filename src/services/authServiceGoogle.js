@@ -2,6 +2,8 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const { Admin } = require('../db');
 const bcrypt = require('bcryptjs');
+const { sendWelcomeEmail } = require('../emailService'); // Asegúrate de que la ruta sea correcta
+
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -25,6 +27,8 @@ passport.use(new GoogleStrategy({
           isActive: true,
         });
       }
+      // Envía el correo electrónico de bienvenida
+	    sendWelcomeEmail(email);
 
       return done(null, admin);
     } catch (error) {

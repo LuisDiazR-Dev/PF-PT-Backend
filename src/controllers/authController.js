@@ -13,9 +13,9 @@ const googleAuthController = passport.authenticate('google', {
 
 const googleAuthCallbackController = (req, res) => {
     // ! local
-  // res.redirect('http://localhost:5173/dashboard-admin');
+  res.redirect('http://localhost:5173/dashboard-admin');
   // ! Deploy
-  res.redirect('https://pf-pt-radmin.vercel.app/dashboard-admin');
+  // res.redirect('https://pf-pt-radmin.vercel.app/dashboard-admin');
 };
 
 module.exports = {
